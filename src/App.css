@@ -1,0 +1,12 @@
+#text{
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only Screen and (min-width:200px) and (max-width : 767px){
+  #text{
+    font-size: 25px
+  }
+}

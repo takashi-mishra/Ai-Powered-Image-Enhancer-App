@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #contain {
+    margin-top: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6vw;
+    flex-wrap: wrap; /* responsive ke liye */
+   
+  }
+
+  #img-cont{
+    display: flex;
+    gap: 86px;
+  }
+  
+  #image-1 {
+    min-width: 20vw;
+    max-width: 25vw;
+    min-height: 44vh;
+    max-height:68vh;
+    overflow: hidden;
+    margin-top: 1vh;
+    background-color: blueviolet;
+    
+    border-radius: 22px;
+  }
+
+  #image-2 {
+    min-width: 20vw;
+    max-width: 25vw;
+    min-height: 44vh;
+    max-height:68vh;
+    overflow: hidden;
+    margin-top: 1vh;
+    background-color: blueviolet;
+    border: 2px solid red;
+    border-radius: 22px;
+  }
+
+  
+  #image-1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+  }
+
+  #image-2 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    object-fit: cover; 
+  }
+  
+  #input-field {
+    margin-top: 20vh;
+    width: 320px; /* Thoda aur broad form */
+    padding: 30px;
+    background: linear-gradient(135deg, #f0f8ff, #e0ffff);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+    animation: slideIn 0.8s ease-out;
+  }
+  
+  #input-field form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  #img {
+    display: none;
+  }
+  
+  #img-lab,
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #0077cc;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border: none;
+  }
+  
+  #img-lab:hover {
+    background-color: #005fa3;
+  }
+  
+  button[type="submit"] {
+    background-color: #28a745;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  p {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    text-align: center;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0077cc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/*responsive-code*/
+@media only Screen and (min-width:200px) and (max-width : 767px){
+  #contain {
+   flex-direction: column;
+   margin-top: 2vh;
+  }
+
+  #img-cont{
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  #image-1 {
+    min-width: 15vw;
+    max-width: 25vw;
+    min-height: 16vh;
+    max-height:20vh;
+    margin-left: 2vw;
+    
+  }
+  #image-2{
+    margin-left: 2.5vh;
+    min-width: 20%;
+    max-width: 90%;
+    height: 62vh;
+  }
+
+  #input-field {
+    margin-top: 1vh;
+    width: 98%;
+    margin-left: 1vw;
+  }
+
+}
+
+  
