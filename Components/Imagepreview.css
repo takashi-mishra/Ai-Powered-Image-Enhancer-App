@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+
+  }
+  html,body{
+    background-color: #55178f;
+    color: #fff;
   }
   
   #contain {
@@ -141,6 +147,179 @@
     100% { transform: rotate(360deg); }
   }
 
+
+  /*pages 2 css stockimage-file*/
+  .image-grid {
+  display: grid;
+  gap: 16px; /* gap between images */
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1600px; /* center content and limit width */
+  margin: 0 auto; /* center horizontally */
+  padding: 20px 16px; /* vertical + side padding */
+  box-sizing: border-box;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect (optional) */
+.image-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Large tablets - 3 columns */
+@media (max-width: 1024px) {
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets - 2 columns */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*component genrating image css*/
+#image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#image-preview img{
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* maximum width for larger screens */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 2vh 0 2vh 0;
+}
+
+#input-field-and-btn{
+  width: 24vw;
+  height: 6vh;
+  background-color: #218838;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#input-field-and-btn:hover {
+  background-color: #1e7e34; /* Darker green on hover */
+}
+#input-field-and-btn input {
+  width: 80%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: transparent; /* Transparent background */
+}
+#input-field-and-btn input:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle blue glow */
+}
+
+#input-field-and-btn button {
+  width: 20%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #28a745; /* Green background */
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#input-field-and-btn button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+#input-field-and-btn button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle blue glow */
+}
+
+/* Placeholder color for input */
+input::placeholder {
+  color: #ccc; /* Light gray color for placeholder */
+  opacity: 1; /* Ensure full opacity */
+}
+
+
+/*page footer*/
+/* Footer.css */
+.footer {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: Arial, sans-serif;
+}
+
+.email {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.social-icons a {
+  margin-left: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    text-align: center;
+    
+  }
+
+  .email {
+    font-size: 0.8rem;
+    margin-bottom: 1%;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+    
+  }
+}
+
+
 /*responsive-code*/
 @media only Screen and (min-width:200px) and (max-width : 767px){
   #contain {
@@ -173,6 +352,22 @@
     width: 98%;
     margin-left: 1vw;
   }
+
+  #input-field-and-btn{
+  width: 100%;
+}
+
+#input-field-and-btn input {
+ width: 70%;
+}
+
+#input-field-and-btn button {
+  width: 30%;
+}
+#image-preview img{
+  width: 80%;
+  margin-left: 11%;
+}
 
 }
 

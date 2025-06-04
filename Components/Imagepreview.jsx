@@ -3,17 +3,19 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./Imagepreview.css";
 
-
-const API_KEY = "wxrgidyih8tiy49dk"; // Replace with your real key
+const API_KEY = "wxw3bst5ic5turfa8"; // Replace with your real key
 const BASE_URL = "https://techhk.aoscdn.com";
 const MAXIMUM_RETRIES = 20;
 
 const Imagepreview = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [imageURL, setImageURL] = useState("/Before.png");
   const [enhancedImage, setEnhancedImage] = useState("/after.png");
   const [loading, setLoading] = useState(false); // <-- new state
-
 
   // Uploads image and initiates enhancement
   const enhancedImageAPI = async (file) => {
@@ -105,44 +107,41 @@ const Imagepreview = () => {
       }
     } catch (error) {
       console.log("Final Error:", error.message);
-    }
-    finally {
+    } finally {
       setLoading(false); // Spinner OFF
     }
   };
 
   return (
     <div id="contain">
-
       <div id="img-cont">
+        <div id="image-1">
+          <img src={imageURL} loading="lazy" alt="Uploaded Preview" />
+        </div>
 
-      <div id="image-1">
-        <img src={imageURL} loading="lazy" alt="Uploaded Preview" />
-      </div>
-
-      <div id="image-2" className="image-1">
-        <img src={enhancedImage} loading="lazy" alt="Enhanced Result" />
-      </div>
-
+        <div id="image-2" className="image-1">
+          <img src={enhancedImage} loading="lazy" alt="Enhanced Result" />
+        </div>
       </div>
       <div id="input-field">
-  {loading ? (
-    <div className="spinner"></div>
-  ) : (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="img" id="img-lab">Upload Image</label>
-      <input
-        id="img"
-        type="file"
-        accept="image/*"
-        {...register("img", { required: "Please upload an image" })}
-      />
-      {errors.img && <p>{errors.img.message}</p>}
-      <button type="submit">Preview</button>
-    </form>
-  )}
-</div>
-
+        {loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label htmlFor="img" id="img-lab">
+              Upload Image
+            </label>
+            <input
+              id="img"
+              type="file"
+              accept="image/*"
+              {...register("img", { required: "Please upload an image" })}
+            />
+            {errors.img && <p>{errors.img.message}</p>}
+            <button type="submit">Preview</button>
+          </form>
+        )}
+      </div>
     </div>
   );
 };
