@@ -270,7 +270,7 @@ input::placeholder {
 /*page footer*/
 /* Footer.css */
 .footer {
-  background-color: #1f1f1f;
+  background-color: #410679;
   color: #ffffff;
   padding: 1.5rem 2rem;
   display: flex;
@@ -368,6 +368,8 @@ input::placeholder {
   width: 80%;
   margin-left: 11%;
 }
+
+
 
 }
 

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import "./Imagepreview.css";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 const GenrateImage = () => {
   const [image, setImage] = useState("/Stock10.jpg");
   const [loading, setLoading] = useState(false);
-  const [prompt, setPrompt] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!prompt.trim()) return;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-    const userPrompt = prompt; // Save before clearing
-    setPrompt(""); // ✅ Clear the input box
+  const onSubmit = async (data) => {
+    const userPrompt = data.prompt;
     setLoading(true);
 
     try {
@@ -34,6 +36,7 @@ const GenrateImage = () => {
 
       const imageUrl = URL.createObjectURL(response.data);
       setImage(imageUrl);
+      reset(); // input box clear
     } catch (error) {
       console.error("Error generating image:", error);
       alert("Failed to generate image.");
@@ -54,19 +57,32 @@ const GenrateImage = () => {
           )}
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit(onSubmit)} className="form">
           <div id="input-field-and-btn">
             <input
               type="text"
               id="inp"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
               placeholder="Type the Description about your image"
+              {...register("prompt", {
+                required: "Prompt is required",
+                minLength: {
+                  value: 5,
+                  message: "Minimum 5 characters required",
+                },
+              })}
+              disabled={loading}
             />
+
             <button id="btn-gen" disabled={loading}>
               {loading ? "Loading..." : "Generate"}
             </button>
           </div>
+
+          {errors.prompt && (
+            <p style={{ color: "red", marginTop: "5px" }}>
+              {errors.prompt.message}
+            </p>
+          )}
         </form>
       </div>
     </>
